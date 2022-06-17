@@ -23,7 +23,7 @@ function calculate(command: Command, num1: number, num2: number): number {
         default:
             // 정말 이게 에러상황이라면 확실하게 에러를 발생시켜줘야 
             // 다른 개발자에게 실수한 부분을 정확하게 인지 시켜줄 수 있다.
-            throw Error('unknown command');
+            throw new Error('unknown command');
     }
 }
 
