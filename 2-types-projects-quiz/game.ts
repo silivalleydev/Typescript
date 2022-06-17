@@ -21,7 +21,7 @@ function move(direction: Direction): void {
             position.x++;
             break;
         default:
-            throw new Error('unknown direction');
+            throw new Error(`unknown direction: ${direction}`);
     }
     
 }
