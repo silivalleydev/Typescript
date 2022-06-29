@@ -52,6 +52,41 @@
     // const maker = new CoffeeMaker(32);
     const maker = CoffeeMaker.makeMachine(32);
     console.log(maker);
+    maker.fillCoffeeBeans(55);
     
     // maker.coffeeBeansGramm = -34; // 이런식으로 incapsulation안된 경우 이상한 값으로 세팅할 수 있다.
+
+    class User {
+        // private firstName: string;
+        // private lastName: string;
+        // fullName: string;
+        private internalAge = 4;
+        // 생성자 내부에 private 키워드로 변수를 선언해주면 해당 변수가 멤버 변수로 선언된다.
+        constructor(private firstName: string, private lastName: string) {
+            // this.firstName = firstName; <-- private으로 선언해줬기 때문에 이렇게 따로 안넣어줘도 생성될때 바로 전달받은 값이 들어가게된다.
+            // this.lastName = lastName;
+            // this.fullName = `${firstName} ${lastName}`;
+        }
+
+
+        // 어떠한 계산을 해야하는 경우 setter와 getter을 사용한다.
+        get fullName(): string {
+            return `${this.firstName} ${this.lastName}`;
+        }
+
+        get age(): number {
+            return this.internalAge;
+        }
+        set age(num: number) {
+            if (num < 0) {
+                throw new Error('age value must be a positive number');
+            }
+            this.internalAge = num;
+        }
+    }
+    const user = new User('Sunny', 'Steve');
+    console.log(user.fullName);
+    // user.firstName = 'Suhyun';
+    console.log(user.fullName);
+    
 }
